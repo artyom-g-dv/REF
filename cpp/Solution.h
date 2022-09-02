@@ -8,15 +8,13 @@
 
 class Solution {
 public:
-  void compute([[maybe_unused]]std::vector<PackedImage> &images) {
-    FunctionTracer<std::chrono::milliseconds> tracer("compute", "ms");
-    //TODO: fill solution
-  }
+    void compute([[maybe_unused]]std::vector<StrideImage> &imageSet) {
+        FunctionTracer<std::chrono::milliseconds> tracer("compute", "ms");
+        for (StrideImage &image : imageSet)
+            for (uint8_t &pixel : image.redPixels)
+                if (pixel >= 200 ) pixel = pixel - 150;
 
-  void compute([[maybe_unused]]std::vector<StrideImage> &images) {
-    FunctionTracer<std::chrono::milliseconds> tracer("compute", "ms");
-    //TODO: fill solution
-  }
+    }
 };
 
 #endif /* SOLUTION_H_ */
